@@ -1,7 +1,7 @@
 Himawari.Kt
 -----------
 
-Fetch live images of the Earth captured by the Himawari Satellite, then set them as desktop background on OSX. Written in [Kotlin](https://kotlinlang.org/)
+Fetch live images of the Earth captured by the [Himawari-8](https://en.wikipedia.org/wiki/Himawari_8) satellite, then set them as desktop background on OSX. Written in [Kotlin](https://kotlinlang.org/)
 
 Installation
 ------------
