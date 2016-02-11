@@ -38,11 +38,10 @@ fun main(args: Array<String>) {
         val bi = BufferedImage(width * scale, height * scale, BufferedImage.TYPE_INT_ARGB)
         val g = bi.graphics
 
-        println("Fetching tiles..Please wait.")
+        println("Fetching tiles.Please wait...")
         for (x in 0..scale - 1) {
             for (y in 0..scale - 1) {
                 val tileURL = URL(pathFor(date, x, y))
-
                 val tile = ImageIO.read(tileURL)
                 println("Fetching (x:$x,y:$y) of (${scale - 1},${scale - 1})")
                 g.drawImage(tile, width * x, height * y, null)
@@ -69,9 +68,7 @@ fun runCmd(vararg cmds: String) {
 }
 
 /**
- * Tiled image URL.
- * Eg: http://himawari8.nict.go.jp/img/D531106/8d/550/2016/02/10/215000_7_3.png
- * for time : 2016-02-10 21:50:05.858945+00:00, x: 7, y: 3
+ * Tiled image URL. Eg: http://himawari8.nict.go.jp/img/D531106/8d/550/2016/02/10/215000_7_3.png
  */
 
 fun pathFor(t: LocalDateTime, x: Int, y: Int) = "%s/%dd/%d/%d/%02d/%02d/%02d%02d00_%d_%d.%s".format(baseURL, scale, width, t.year, t.monthValue, t.dayOfMonth, t.hour, t.minute, x, y, format)
