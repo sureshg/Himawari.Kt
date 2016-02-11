@@ -9,9 +9,9 @@ Installation
 
 * From Binary
 
-   [Mac OS X Download<sup>**</sup>](https://github.com/sureshg/Himawari.Kt/releases/download/1.0/himawari)
+   [Mac OS X Download<sup>**</sup>](https://github.com/sureshg/Himawari.Kt/releases/latest)
 
-   > After download, make sure to set the execute permission (`chmod +x himawari`)
+   > After download and unzip, make sure to set the executable permission (`chmod +x himawari`)
 
 * From Source
 
