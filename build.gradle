@@ -1,0 +1,64 @@
+buildscript {
+    ext {
+        kotlin_version = '1.0.0-rc-1050'
+        gradle_version = '2.11'
+    }
+    repositories {
+        maven {
+            url "http://dl.bintray.com/kotlin/kotlin-eap"
+        }
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+plugins {
+    id "us.kirchmeier.capsule" version "1.0.2"
+}
+
+apply plugin: 'java'
+apply plugin: 'kotlin'
+
+group 'io.sureshg'
+version '1.0'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    maven {
+        url "https://maven-central.storage.googleapis.com"
+    }
+    maven {
+        url "http://dl.bintray.com/kotlin/kotlin-eap"
+    }
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+task makeExecutable(type: FatCapsule) {
+    // Executable name
+    archiveName = 'himawari'
+    reallyExecutable { trampoline() }
+    capsuleManifest {
+        premainClass = 'Capsule'
+        mainClass = 'Capsule'
+        applicationName = 'himawari'
+        applicationVersion = version
+        applicationClass = 'io.sureshg.Himawari'
+        jvmArgs = ['-client']
+        args = ['$*']
+        minJavaVersion = '1.7.0'
+    }
+}
+
+wrapper {
+    gradleVersion = gradle_version
+}
+
